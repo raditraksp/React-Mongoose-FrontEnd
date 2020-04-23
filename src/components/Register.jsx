@@ -17,6 +17,12 @@ class Register extends Component {
             if(res.data.errmsg){
                let feedback = prompt('Masukkan feedback')
             }
+            if(!username || !name || !age || !email || !password){
+               alert('Lengkapi Data!')
+            } else {
+               alert('Data Tersimpan')
+            }
+            
          })
          .catch(err => {
             let feedback = prompt('Masukkan feedback')
@@ -26,28 +32,43 @@ class Register extends Component {
    render() { 
       return (
          <form onSubmit={this.registerUser} >
-            <div>
-               username
-               <input ref={(input) => {this.username = input}} type="text"/>
-            </div>
-            <div>
-               name
-               <input ref={(input) => {this.name = input}} type="text"/>
-            </div>
-            <div>
-               age
-               <input ref={(input) => {this.age = input}} type="number"/>
-            </div>
-            <div>
-               email
-               <input ref={(input) => {this.email = input}} type="email"/>
-            </div>
-            <div>
-               password
-               <input ref={(input) => {this.password = input}} type="password"/>
+            <div className="mt-5 row">
+               <div className="col-sm-4 mx-auto card">
+                  <div className="card-body">
+                     <div className="border-bottom border-secondary card-title">
+                        <h1>Register</h1>
+                     </div>
+
+                     <div className="card-title mt-1">
+                        <h4>Username</h4>
+                     </div>
+                     <form className="input-group "> <input ref={(input) => {this.username = input}} className="form-control" type="text"/></form>
+                     
+                     <div className="card-title mt-1">
+                        <h4>Name</h4>
+                        <form className="input-group"><input ref={(input) => {this.name = input}} className="form-control" type="text"/> </form>
+                     </div>
+                  
+                     <div className="card-title mt-1">
+                        <h4>Age</h4>
+                        <form className="input-group"><input ref={(input) => {this.age = input}} className="form-control" type="number"/></form>
+                     </div>
+                     
+                     <div className="card-title mt-1">
+                        <h4>Email</h4>
+                        <form className="input-group"><input ref={(input) => {this.email = input}} className="form-control" type="email"/></form>
+                     </div>
+                     
+                     <div className="card-title mt-1">
+                        password
+                        <form className="input-group"><input ref={(input) => {this.password = input}} className="form-control" type="password"/></form>
+                     </div>
+
+                     <input className="btn btn-success btn-block" type="submit" value="Register"/>
+                  </div>
+               </div>
             </div>
 
-            <input type="submit" value="Register"/>
          </form>
       );
    }
